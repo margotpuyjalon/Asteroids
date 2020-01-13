@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     public float yUp = 6.5f;
     public float yDown = -6.5f;
     // Notre objet asteroide
-    public Asteroids asteroidObject;
+    public GameObject asteroidObject;
     // Variable pour determiner la vitesse d'apparition
     public float spawnTime;
     private float timeBtwSpawn;
@@ -62,7 +62,8 @@ public class Spawner : MonoBehaviour
         }
 
         // On cree notre asteroide avec les valeurs choisies
-        Asteroids asteroidTemp = Instantiate(asteroidObject, pos, Quaternion.identity);
+        Asteroids asteroidTemp = Instantiate(asteroidObject, pos, Quaternion.identity).GetComponent<Asteroids>();
         asteroidTemp.direction = dir;
+        asteroidTemp.Launch();
     }
 }

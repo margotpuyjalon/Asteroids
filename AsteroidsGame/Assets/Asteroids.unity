@@ -173,7 +173,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -236,7 +236,7 @@ MonoBehaviour:
   xRight: 10
   yUp: 6.5
   yDown: -6.5
-  asteroidObject: {fileID: 2416420269946165407, guid: 0ad23ca3af7b52d47a68966d2cbbe1fa,
+  asteroidObject: {fileID: 1813028219183103751, guid: 0ad23ca3af7b52d47a68966d2cbbe1fa,
     type: 3}
   spawnTime: 0.5
 --- !u!4 &1612869174
@@ -253,3 +253,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4904902238229408993
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4904902238078603689, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_Name
+      value: Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603693, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238078603691, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1051681636}
+    - target: {fileID: 4904902238179108454, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904902238179108454, guid: 35ac378a1e134a046a542bc3b38d2b86,
+        type: 3}
+      propertyPath: fireRateSec
+      value: 5.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35ac378a1e134a046a542bc3b38d2b86, type: 3}
