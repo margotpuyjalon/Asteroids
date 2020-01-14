@@ -28,14 +28,15 @@ public class Asteroids : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             this.BulletCollision(collision.contacts[0]);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            GameObject.Find("GameManager").GetComponent<GameManager>().DamageShip();
             Destroy(GameObject.Find("GhostSpaceship(Clone)"));
         }
         else //if(collision.gameObject.tag == "Bullet")
         {
             
             this.BulletCollision(collision.contacts[0]);
-            Debug.Log("YO");
+            //Debug.Log("YO");
             Destroy(collision.gameObject);
         }
     }

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
         Game
     }
 
+    public GameObject spaceship = null;
+    public GameObject spawner = null;
+
     private GameState gameState;
 
     /* Canvas */
@@ -87,15 +90,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             gameState = GameState.InitMenu;
 
-        if (health == 0)
+        if (health <= 0 && health > -999)
         {
-            health = -1;
+            health = -1000;
             gameState = GameState.Death;
         }
-
-        /* DEBUG: Command for test, until Player and Asteroid are added */
-        if (Input.GetKeyDown(KeyCode.P))
-            health--;
     }
 
     /* Answer to click on "Play" button */
@@ -118,9 +117,17 @@ public class GameManager : MonoBehaviour
     void Death()
     {
         fullTime += Time.deltaTime;
-        
-        if (fullTime >= 5f)
+
+        spaceship.SetActive(false);
+        spawner.SetActive(false);
+
+        if (fullTime > 5f)
             gameState = GameState.InitMenu;
+    }
+
+    public void DamageShip()
+    {
+        health--;
     }
 
     /* Initialize the Menu */
@@ -128,6 +135,14 @@ public class GameManager : MonoBehaviour
     {
         canvasMenu.SetActive(true);
         canvasGame.SetActive(false);
+
+        spaceship.SetActive(false);
+        spawner.SetActive(false);
+
+        Debug.Log("InitMenu");
+
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Asteroid"))
+            Destroy(go);
 
         gameState = GameState.Menu;
     }
@@ -143,6 +158,11 @@ public class GameManager : MonoBehaviour
         health = 3;
 
         fullTime = 0f;
+
+        spaceship.SetActive(true);
+        spawner.SetActive(true);
+
+        Debug.Log("InitGame");
 
         gameState = GameState.Game;
     }
