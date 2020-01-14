@@ -125,11 +125,6 @@ public class GameManager : MonoBehaviour
             gameState = GameState.InitMenu;
     }
 
-    public void DamageShip()
-    {
-        health--;
-    }
-
     /* Initialize the Menu */
     void InitMenu()
     {
@@ -187,5 +182,24 @@ public class GameManager : MonoBehaviour
         labelScore.GetComponent<Text>().text = "Score : " + score;
         labelTime.GetComponent<Text>().text = "Time : " + time;
         labelHealth.GetComponent<Text>().text = "Health : " + health;
+    }
+
+    public void DamageShip()
+    {
+        health--;
+    }
+
+    public void AddScore(int sc)
+    {
+        score += sc;
+    }
+
+    IEnumerator Invincibility()
+    {
+        spaceship.GetComponent<CircleCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(2);
+
+        spaceship.GetComponent<CircleCollider2D>().enabled = true;
     }
 }
