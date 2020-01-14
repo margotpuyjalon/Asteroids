@@ -17,8 +17,8 @@ public class movement : MonoBehaviour
     private bool decreasing = false;
     private Vector3 direction;
 
-    public Object ghostSpaceship;
-    private Object spawnedGhost;
+    public GameObject ghostSpaceship;
+    private GameObject spawnedGhost;
     public int maxDelayBtwSprites = 10;
     private int delayBtwSprites = 0;
 
@@ -104,11 +104,41 @@ public class movement : MonoBehaviour
     void SpawnGhost()
     {
         // We have to find and destroy the previous spaceship sprite
-        if(spawnedGhost) Destroy(spawnedGhost);
-        spawnedGhost = Instantiate(ghostSpaceship, transform.position, transform.rotation);
+        if(spawnedGhost == null) 
+        {
+            
+            spawnedGhost = Instantiate(ghostSpaceship, transform.position, transform.rotation);
+
+            SpriteRenderer sprite = spawnedGhost.GetComponent<SpriteRenderer>();
+            switch(PerceptiveParameters.shipColor)
+            {
+                case ShipColor.BACKGROUND : 
+                    sprite.color = new Color(0.03137255f,0.0627451f,0.1176471f,1f);
+                break;
+
+                case ShipColor.ASTEROID : 
+                    sprite.color = new Color(0.5960785f,0.4901961f,0.4509804f,1f);
+                break;
+
+                default :
+                    sprite.color = new Color(1f,1f,1f,1f);
+                break;
+            }
+        }
+        else
+        {
+            spawnedGhost.transform.position = this.transform.position;
+            spawnedGhost.transform.rotation = this.transform.rotation;
+        }
+
         delayBtwSprites = maxDelayBtwSprites;
     }
 
+    public void Reset()
+    {
+        Destroy(spawnedGhost);
+        spawnedGhost = null;
+    }
     public void SetmaxDelayBtwSprites(Slider slider)
     {
         Debug.Log(slider.value);
