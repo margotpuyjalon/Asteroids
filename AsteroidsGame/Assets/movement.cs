@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
@@ -15,6 +16,17 @@ public class movement : MonoBehaviour
     private bool accelerating = true;
     private bool decreasing = false;
     private Vector3 direction;
+
+    public Object ghostSpaceship;
+    public int maxDelayBtwSprites = 10;
+    private int delayBtwSprites = 0;
+
+    public Text spriteText;
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -40,7 +52,6 @@ public class movement : MonoBehaviour
         if(Input.GetAxis("Vertical") > 0)
         {
             direction = transform.rotation.eulerAngles;
-
         }
 
             if (currentSpeed > speed)
@@ -84,5 +95,26 @@ public class movement : MonoBehaviour
         //    Debug.Log(currentSpeed);
         //}
         //framecount++;
+
+        if (delayBtwSprites > 0) delayBtwSprites--;
+        SpawnGhostSpaceship();
+    }
+
+    void SpawnGhostSpaceship()
+    {
+        if (delayBtwSprites == 0)
+        {
+            // We have to find and destroy the previous spaceship sprite
+            Destroy(GameObject.Find("GhostSpaceship(Clone)"));
+            Instantiate(ghostSpaceship, transform.position, transform.rotation);
+            delayBtwSprites = maxDelayBtwSprites;
+        }
+    }
+
+    public void SetmaxDelayBtwSprites(Slider slider)
+    {
+        Debug.Log(slider.value);
+        maxDelayBtwSprites = (int)slider.value;
+        spriteText.text = "Delay btw sprites : " + (int)slider.value;
     }
 }

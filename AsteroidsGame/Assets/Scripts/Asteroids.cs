@@ -29,6 +29,7 @@ public class Asteroids : MonoBehaviour
         {
             this.BulletCollision(collision.contacts[0]);
             Destroy(collision.gameObject);
+            Destroy(GameObject.Find("GhostSpaceship(Clone)"));
         }
         else //if(collision.gameObject.tag == "Bullet")
         {
