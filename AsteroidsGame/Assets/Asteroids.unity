@@ -325,15 +325,5 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1051681636}
-    - target: {fileID: 4904902238179108454, guid: 35ac378a1e134a046a542bc3b38d2b86,
-        type: 3}
-      propertyPath: bulletSpeed
-      value: 733
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904902238179108454, guid: 35ac378a1e134a046a542bc3b38d2b86,
-        type: 3}
-      propertyPath: fireRateSec
-      value: 5.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ac378a1e134a046a542bc3b38d2b86, type: 3}

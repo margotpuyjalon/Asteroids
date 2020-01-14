@@ -49,8 +49,8 @@ public class Asteroids : MonoBehaviour
         }
         else
         {
-            GameObject gb1 = Instantiate(this.gameObject, contact.point, Quaternion.identity);
-            GameObject gb2 = Instantiate(this.gameObject, contact.point, Quaternion.identity);
+            GameObject gb1 = Instantiate(this.gameObject , contact.point + new Vector2(Random.Range(-1,1),Random.Range(-1,1)), Quaternion.identity);
+            GameObject gb2 = Instantiate(this.gameObject, contact.point + new Vector2(Random.Range(-1,1),Random.Range(-1,1)), Quaternion.identity);
             
             gb1.transform.localScale = 0.5f * this.transform.localScale;
             gb2.transform.localScale = 0.5f * this.transform.localScale;
@@ -59,10 +59,14 @@ public class Asteroids : MonoBehaviour
             //Vector2 dir = contact.point - (Vector2) this.transform.position ;
             //gb1.GetComponent<Asteroids>().direction =  Quaternion.Euler(0,0,90) * dir;
             gb1.GetComponent<Asteroids>().direction = new Vector2(Random.Range(-1,1),Random.Range(-1,1));
+            gb1.GetComponent<Asteroids>().enabled = true;
             gb1.GetComponent<Asteroids>().Launch();
+            gb1.GetComponent<CapsuleCollider2D>().enabled = true;
             //gb2.GetComponent<Asteroids>().direction = Quaternion.Euler(0,0, - 90) * dir;
             gb2.GetComponent<Asteroids>().direction = new Vector2(Random.Range(-1,1),Random.Range(-1,1));
+            gb2.GetComponent<Asteroids>().enabled = true;
             gb2.GetComponent<Asteroids>().Launch();
+            gb2.GetComponent<CapsuleCollider2D>().enabled = true;
             Destroy(this.gameObject);
         }
     }
