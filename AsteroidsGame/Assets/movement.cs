@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +18,8 @@ public class movement : MonoBehaviour
     private bool decreasing = false;
     private Vector3 direction;
 
-    public Object ghostSpaceship;
-    private Object spawnedGhost;
+    public GameObject ghostSpaceship;
+    private GameObject spawnedGhost;
     private float maxDelayBtwSprites;
     private float delayBtwSprites = 0;
 
@@ -59,17 +59,14 @@ public class movement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -(transform.position.y - dir * 0.5f), transform.position.z);
         }
         if (delayBtwSprites > 0) delayBtwSprites--;
-        SpawnGhostSpaceship();
+        if (delayBtwSprites <= 0) SpawnGhostSpaceship();
     }
 
     void SpawnGhostSpaceship()
     {
-        // We have to find and destroy the previous spaceship sprite
         if(spawnedGhost == null) 
         {
-            
             spawnedGhost = Instantiate(ghostSpaceship, transform.position, transform.rotation);
-
             SpriteRenderer sprite = spawnedGhost.GetComponent<SpriteRenderer>();
             switch(PerceptiveParameters.shipColor)
             {

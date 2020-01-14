@@ -8,8 +8,8 @@ public class Asteroids : MonoBehaviour
     public Vector2 direction;
     public float speed;
 
-    public Object ghostAsteroid;
-    private Object spawnedGhost;
+    public GameObject ghostAsteroid;
+    private GameObject spawnedGhost;
     private float maxDelayBtwSprites;
     private float delayBtwSprites = 0;
 
@@ -30,14 +30,21 @@ public class Asteroids : MonoBehaviour
 
     {
         this.GetComponent<Rigidbody2D>().AddForce(direction.normalized * speed * this.GetComponent<Rigidbody2D>().mass);
-        Destroy(this.gameObject, 8f);
+        Destroy(this.gameObject, 20f);
     }
 
     void SpawnGhost()
     {
-        // We have to find and destroy the previous spaceship sprite
-        Destroy(spawnedGhost);
-        spawnedGhost = Instantiate(ghostAsteroid, transform.position, transform.rotation);
+        if (spawnedGhost == null)
+        {
+            spawnedGhost = Instantiate(ghostAsteroid, transform.position, transform.rotation);
+            SpriteRenderer sprite = spawnedGhost.GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            spawnedGhost.transform.position = this.transform.position;
+            spawnedGhost.transform.rotation = this.transform.rotation;
+        }
         delayBtwSprites = maxDelayBtwSprites;
     }
 
