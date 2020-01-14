@@ -10,8 +10,13 @@ public class Asteroids : MonoBehaviour
 
     public Object ghostAsteroid;
     private Object spawnedGhost;
-    public int maxDelayBtwSprites = 10;
-    private int delayBtwSprites = 0;
+    private float maxDelayBtwSprites;
+    private float delayBtwSprites = 0;
+
+    void Start()
+    {
+        maxDelayBtwSprites = PerceptiveParameters.lagAsteroid;
+    }
 
     void Update()
     {

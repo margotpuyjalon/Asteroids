@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class movement : MonoBehaviour
 {
     public float speed = 5f;
@@ -19,14 +20,14 @@ public class movement : MonoBehaviour
 
     public Object ghostSpaceship;
     private Object spawnedGhost;
-    public int maxDelayBtwSprites = 10;
-    private int delayBtwSprites = 0;
+    private float maxDelayBtwSprites;
+    private float delayBtwSprites = 0;
 
     public Text spriteText;
 
     private void Start()
     {
-        
+        maxDelayBtwSprites = PerceptiveParameters.lagPlayer;
     }
 
     void Update()
@@ -98,7 +99,7 @@ public class movement : MonoBehaviour
         //framecount++;
 
         if (delayBtwSprites > 0) delayBtwSprites--;
-        if (delayBtwSprites == 0) SpawnGhost();
+        if (delayBtwSprites <= 0) SpawnGhost();
     }
 
     void SpawnGhost()
@@ -107,12 +108,5 @@ public class movement : MonoBehaviour
         if(spawnedGhost) Destroy(spawnedGhost);
         spawnedGhost = Instantiate(ghostSpaceship, transform.position, transform.rotation);
         delayBtwSprites = maxDelayBtwSprites;
-    }
-
-    public void SetmaxDelayBtwSprites(Slider slider)
-    {
-        Debug.Log(slider.value);
-        maxDelayBtwSprites = (int)slider.value;
-        spriteText.text = "Delay btw sprites : " + (int)slider.value;
     }
 }
