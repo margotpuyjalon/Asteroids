@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
         InitMenu,
         Menu,
         InitGame,
-        Game
+        Game,
+        Settings
     }
 
     public GameObject spaceship = null;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     /* Canvas */
     private GameObject canvasMenu;
     private GameObject canvasGame;
+
+    private GameObject canvasSettings;
 
     /* Label */
     private GameObject labelScore;
@@ -46,6 +49,11 @@ public class GameManager : MonoBehaviour
         canvasGame = GameObject.Find("Canvas_Game");
         if (canvasGame == null)
             Debug.LogError("Canvas_Game does not exist");
+
+        canvasSettings = GameObject.Find("Canvas_Settings");
+        if (canvasSettings == null)
+            Debug.LogError("Canvas_Settings does not exist");
+
 
         labelScore = GameObject.Find("Label_Score");
         if (labelScore == null)
@@ -130,11 +138,35 @@ public class GameManager : MonoBehaviour
         health--;
     }
 
+    public void InitSettings()
+    {
+        canvasMenu.SetActive(false);
+        canvasGame.SetActive(false);
+        canvasSettings.SetActive(true);
+
+        spaceship.SetActive(false);
+        spawner.SetActive(false);
+
+        Debug.Log("InitSettings");
+
+    
+
+        gameState = GameState.Settings;
+    }
+
+    public void ExitSettings()
+    {
+        canvasSettings.SetActive(false);
+        canvasMenu.SetActive(true);
+        gameState = GameState.Menu;
+    }
+
     /* Initialize the Menu */
     void InitMenu()
     {
         canvasMenu.SetActive(true);
         canvasGame.SetActive(false);
+        canvasSettings.SetActive(false);
 
         spaceship.SetActive(false);
         spawner.SetActive(false);

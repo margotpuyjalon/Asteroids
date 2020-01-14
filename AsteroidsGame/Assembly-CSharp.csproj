@@ -56,9 +56,12 @@
      <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\movement.cs" />
+     <Compile Include="Assets\MusicMovement.cs" />
      <Compile Include="Assets\Scripts\Asteroids.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\PerceptiveParameters.cs" />
+     <Compile Include="Assets\Scripts\Settings.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/Asteroids/AsteroidsGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
