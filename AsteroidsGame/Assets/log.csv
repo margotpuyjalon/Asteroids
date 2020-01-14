@@ -1,6 +1,10 @@
 Inertia,LagPlayer,LagAsteroid,ShipColor,CoherentSound,LagSound,Score,Temps
 0,0,0,NORMAL,True,0,3,5
+<<<<<<< HEAD
+0,0,0,NORMAL,True,0,4,33
+=======
 0,0,0,ASTEROID,True,0,0,10
 0,0,0,NORMAL,True,0,2,6
 0,0,0,NORMAL,True,0,0,10
 0,0,0,BACKGROUND,True,0,0,21
+>>>>>>> bffb77446071117672f8821d16ed5c8238515b63
