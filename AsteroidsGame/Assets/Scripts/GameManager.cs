@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour
         fullTime = 0f;
 
         spaceship.SetActive(true);
+        spaceship.GetComponent<movement>().Reset();
         spawner.SetActive(true);
 
         Debug.Log("InitGame");
