@@ -65,5 +65,6 @@ public class Spawner : MonoBehaviour
         Asteroids asteroidTemp = Instantiate(asteroidObject, pos, Quaternion.identity).GetComponent<Asteroids>();
         asteroidTemp.direction = dir;
         asteroidTemp.Launch();
+        
     }
 }

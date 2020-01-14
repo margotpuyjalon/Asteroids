@@ -98,11 +98,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             gameState = GameState.InitMenu;
 
-        if (health <= 0 && health > -999)
-        {
-            health = -1000;
-            gameState = GameState.Death;
-        }
+       
     }
 
     /* Answer to click on "Play" button */
@@ -130,7 +126,11 @@ public class GameManager : MonoBehaviour
         spawner.SetActive(false);
 
         if (fullTime > 5f)
+        {
             gameState = GameState.InitMenu;
+            PerceptiveParameters.SaveToFile(score,time);
+        }
+
     }
 
     public void InitSettings()
@@ -214,6 +214,11 @@ public class GameManager : MonoBehaviour
         labelScore.GetComponent<Text>().text = "Score : " + score;
         labelTime.GetComponent<Text>().text = "Time : " + time;
         labelHealth.GetComponent<Text>().text = "Health : " + health;
+
+        if (health <= 0)
+        {
+            gameState = GameState.Death;
+        }
     }
 
     public void DamageShip()
