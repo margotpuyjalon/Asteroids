@@ -35,13 +35,11 @@ public class movement : MonoBehaviour
         if (Input.GetAxis("Vertical") > 0)
         {
             myrigidBody.AddForce(this.transform.up * speed);
-
         }
 
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         rotation *= Time.deltaTime;
         transform.Rotate(0, 0, -rotation);
-        Debug.Log(transform.position);
         Vector2 scaledPos = camera.WorldToScreenPoint(transform.position);
         if (scaledPos.x > Screen.width || scaledPos.x < 0)
         {
@@ -74,7 +72,6 @@ public class movement : MonoBehaviour
 
     public void SetmaxDelayBtwSprites(Slider slider)
     {
-        Debug.Log(slider.value);
         maxDelayBtwSprites = (int)slider.value;
         spriteText.text = "Delay btw sprites : " + (int)slider.value;
     }

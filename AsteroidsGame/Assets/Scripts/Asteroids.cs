@@ -36,6 +36,11 @@ public class Asteroids : MonoBehaviour
         delayBtwSprites = maxDelayBtwSprites;
     }
 
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         // collision.GetComponent<Player>().health -= damage;
