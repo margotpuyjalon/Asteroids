@@ -8,10 +8,17 @@ public class Asteroids : MonoBehaviour
     public Vector2 direction;
     public float speed;
 
-    
+    public Object ghostAsteroid;
+    private Object spawnedGhost;
+    public int maxDelayBtwSprites = 10;
+    private int delayBtwSprites = 0;
+
     void Update()
     {
         //transform.Translate(direction.normalized * speed);
+
+        if (delayBtwSprites > 0) delayBtwSprites--;
+        if (delayBtwSprites == 0) SpawnGhost();
     }
 
     public void Launch()
@@ -19,6 +26,14 @@ public class Asteroids : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().AddForce(direction.normalized * speed * this.GetComponent<Rigidbody2D>().mass);
         Destroy(this.gameObject, 8f);
+    }
+
+    void SpawnGhost()
+    {
+        // We have to find and destroy the previous spaceship sprite
+        Destroy(spawnedGhost);
+        spawnedGhost = Instantiate(ghostAsteroid, transform.position, transform.rotation);
+        delayBtwSprites = maxDelayBtwSprites;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,9 +44,7 @@ public class Asteroids : MonoBehaviour
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().DamageShip();
             Destroy(gameObject);
-            //this.BulletCollision(collision.contacts[0]);
-            //Destroy(collision.gameObject);
-            Destroy(GameObject.Find("GhostSpaceship(Clone)"));
+            Destroy(spawnedGhost);
         }
         else //if(collision.gameObject.tag == "Bullet")
         {
@@ -41,6 +54,7 @@ public class Asteroids : MonoBehaviour
             this.BulletCollision(collision.contacts[0]);
             //Debug.Log("YO");
             Destroy(collision.gameObject);
+            Destroy(spawnedGhost);
         }
     }
 
@@ -49,8 +63,7 @@ public class Asteroids : MonoBehaviour
         if(this.transform.localScale.x  < 0.33f)
         {
             Destroy(this.gameObject);
-
-            
+            Destroy(spawnedGhost);
         }
         else
         {

@@ -18,6 +18,7 @@ public class movement : MonoBehaviour
     private Vector3 direction;
 
     public Object ghostSpaceship;
+    private Object spawnedGhost;
     public int maxDelayBtwSprites = 10;
     private int delayBtwSprites = 0;
 
@@ -97,18 +98,15 @@ public class movement : MonoBehaviour
         //framecount++;
 
         if (delayBtwSprites > 0) delayBtwSprites--;
-        SpawnGhostSpaceship();
+        if (delayBtwSprites == 0) SpawnGhost();
     }
 
-    void SpawnGhostSpaceship()
+    void SpawnGhost()
     {
-        if (delayBtwSprites == 0)
-        {
-            // We have to find and destroy the previous spaceship sprite
-            Destroy(GameObject.Find("GhostSpaceship(Clone)"));
-            Instantiate(ghostSpaceship, transform.position, transform.rotation);
-            delayBtwSprites = maxDelayBtwSprites;
-        }
+        // We have to find and destroy the previous spaceship sprite
+        if(spawnedGhost) Destroy(spawnedGhost);
+        spawnedGhost = Instantiate(ghostSpaceship, transform.position, transform.rotation);
+        delayBtwSprites = maxDelayBtwSprites;
     }
 
     public void SetmaxDelayBtwSprites(Slider slider)

@@ -6,10 +6,10 @@ public class Spawner : MonoBehaviour
 {
     // Border positions
     // A CHANGER SELON LA DEFINITION FINALE DE L'ESPACE DE JEU
-    public float xLeft = -10;
-    public float xRight = 10;
-    public float yUp = 6.5f;
-    public float yDown = -6.5f;
+    public float xLeft = -22f;
+    public float xRight = 22f;
+    public float yUp = 11f;
+    public float yDown = -11f;
     // Notre objet asteroide
     public GameObject asteroidObject;
     // Variable pour determiner la vitesse d'apparition

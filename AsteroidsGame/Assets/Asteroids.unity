@@ -4005,13 +4005,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e0f52249d22aa428201f861e9b14ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xLeft: -10
-  xRight: 10
-  yUp: 6.5
-  yDown: -6.5
-  asteroidObject: {fileID: 1813028219183103751, guid: 0ad23ca3af7b52d47a68966d2cbbe1fa,
+  xLeft: -22
+  xRight: 22
+  yUp: 11
+  yDown: -11
+  asteroidObject: {fileID: 1724518215572485107, guid: 0ad23ca3af7b52d47a68966d2cbbe1fa,
     type: 3}
-  spawnTime: 0.5
+  spawnTime: 2
 --- !u!4 &1612869174
 Transform:
   m_ObjectHideFlags: 0
