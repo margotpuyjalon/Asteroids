@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
             GameObject gb = Instantiate(this.bulletPrefab, this.transform.position, Quaternion.identity);
             gb.GetComponent<Rigidbody2D>().AddForce(this.transform.up * bulletSpeed);
             timeElapsedSinceFire = 0;
+            GetComponent<AudioSource>().Play();
 
             //Temporaire
             Destroy(gb,8f);
