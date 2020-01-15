@@ -29,7 +29,7 @@ public class movement : MonoBehaviour
 
     private void Start()
     {
-        maxDelayBtwSprites = PerceptiveParameters.lagPlayer;
+        maxDelayBtwSprites = PerceptiveParameters.lagPlayer * 10;
         myrigidBody = this.GetComponent<Rigidbody2D>();
     }
 
@@ -94,6 +94,7 @@ public class movement : MonoBehaviour
 
     public void Reset()
     {
+        maxDelayBtwSprites = PerceptiveParameters.lagPlayer * 10;
         Destroy(spawnedGhost);
         spawnedGhost = null;
     }

@@ -67,8 +67,8 @@ public class PerceptiveParameters {
     {
         string[] rowDataTemp = new string[8];
         rowDataTemp[0] = PerceptiveParameters.inertia.ToString();
-        rowDataTemp[1] = PerceptiveParameters.lagPlayer.ToString();
-        rowDataTemp[2] = PerceptiveParameters.lagAsteroid.ToString();
+        rowDataTemp[1] = (PerceptiveParameters.lagPlayer*10).ToString();
+        rowDataTemp[2] = (PerceptiveParameters.lagAsteroid*10).ToString();
         rowDataTemp[3] = PerceptiveParameters.shipColor.ToString();
         rowDataTemp[4] = PerceptiveParameters.coherentSound.ToString();
         rowDataTemp[5] = PerceptiveParameters.lagSound.ToString();

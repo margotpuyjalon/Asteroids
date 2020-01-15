@@ -15,7 +15,7 @@ public class Asteroids : MonoBehaviour
 
     void Start()
     {
-        maxDelayBtwSprites = PerceptiveParameters.lagAsteroid;
+        maxDelayBtwSprites = PerceptiveParameters.lagAsteroid * 10;
     }
 
     void Update()
